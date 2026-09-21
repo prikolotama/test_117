@@ -1,0 +1,11 @@
+.moment { margin-top: 24px; }
+.inlineBanner { margin: 20px 0 0; }
+.inlineBanner .banner { width: 100%; margin-inline: auto; }
+.copy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 20px 24px; background: var(--bg-muted); border-radius: 16px; margin-bottom: 16px; }
+.copy h2 { font-size: clamp(1rem,1.7vw,1.25rem); line-height: 1.35; }
+.copy p { font-size: .875rem; }
+.answer { margin-top: 8px; font-weight: 700; }
+.banner { display: block; border-radius: 16px; }
+.banner img { width: 100%; height: auto; }
+.banner:focus-visible { outline-offset: 5px; }
+@media(max-width:600px) { .copy { grid-template-columns: 1fr; gap: 12px; padding: 16px; } }

@@ -1,0 +1,15 @@
+.about { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); padding: var(--space-7); margin-bottom: var(--space-7); background: var(--bg-muted); border-radius: var(--radius-lg); scroll-margin-top: var(--space-5); }
+.label { font-family: var(--font-display); font-size: 0.75rem; margin-bottom: var(--space-4); }
+.copy h2 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.035em; }
+.description { margin-block: var(--space-5); max-width: 60ch; }
+.features { display: grid; gap: var(--space-5); margin: 0; align-content: center; }
+.features div { display: grid; grid-template-columns: 36px 1fr; column-gap: var(--space-4); }
+.features span { grid-row: span 2; width: 36px; height: 36px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--brand-ink); color: var(--text-inverse); font-family: var(--font-display); font-size: 0.75rem; }
+.features dt { font-family: var(--font-display); font-weight: 500; }
+.features dd { margin: var(--space-2) 0 0; }
+@media(max-width:900px) { .about { grid-template-columns: 1fr; padding: var(--space-6); gap: var(--space-6); } }
+@media(max-width:600px) { .about { padding: var(--space-5); } .copy h2 { font-size: 1.625rem; } }
+
+/* Optional Pencil design, switchable without changing behavior. */
+:global(html[data-design="pencil"]) .about { background: #171717; color: #fff; border-radius: 10px; padding: 40px; margin-bottom: 20px; } :global(html[data-design="pencil"]) .copy h2 { font-weight: 400; font-size: 1.875rem; line-height: 1.3; } :global(html[data-design="pencil"]) .label { color: #f7a71f; } :global(html[data-design="pencil"]) .features span { background: #f7a71f; color: #171717; border-radius: 2px; } :global(html[data-design="pencil"]) .features dt { font-weight: 400; } :global(html[data-design="pencil"]) .features dd { color: #ccc; font-size: .9375rem; }
+@media(max-width:600px) { :global(html[data-design="pencil"]) .about { padding: 24px; } }

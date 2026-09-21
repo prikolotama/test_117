@@ -1,0 +1,48 @@
+html[data-design="pencil"] {
+  --checku-orange: #f7a71f;
+  --checku-graphite: #171717;
+  --font-body: var(--font-onest), Arial, sans-serif;
+  --radius-sm: 3px;
+  --radius-md: 10px;
+  --radius-lg: 10px;
+  --radius-button: 3px;
+  --container-wide: 1200px;
+}
+html[data-design="pencil"] body { background: #000; }
+html[data-design="pencil"] .button { font-weight: 500; font-size: .9375rem; cursor: pointer; }
+html[data-design="pencil"] .button:hover:not(:disabled) { transform: none; background: #ffbc49; }
+html[data-design="pencil"] :focus-visible { outline-color: #b87500; }
+.design-switcher { position: fixed; z-index: 100; bottom: 12px; right: 12px; display: flex; align-items: center; gap: 4px; padding: 4px; background: #fff; color: #171717; border: 1px solid #777; border-radius: 6px; font: 12px Arial,sans-serif; }
+.design-switcher span { padding-inline: 8px; }
+.design-switcher button { min-height: 36px; border: 0; border-radius: 3px; background: #e9e9e9; color: #171717; padding: 6px 12px; cursor: pointer; }
+.design-switcher button[aria-pressed="true"] { background: #171717; color: #fff; }
+@media(max-width:600px) { html[data-design="pencil"] { --page-gutter: 16px; } }
+/* Pencil accordions: one surface, a square plus/cross, no browser triangle. */
+html[data-design="pencil"] body details { background: #e9e9e9; color: #171717; border: 0; border-radius: 3px; }
+html[data-design="pencil"] body details > summary,
+html[data-design="pencil"] body button[aria-controls="question-evidence"] {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  list-style: none; width: 100%; min-height: 64px; padding: 16px 20px;
+  background: #e9e9e9; color: #171717; border: 0; border-radius: 3px;
+  font-size: .9375rem; font-weight: 400; cursor: pointer; text-decoration: none;
+}
+html[data-design="pencil"] body details > summary::-webkit-details-marker { display: none; }
+html[data-design="pencil"] body details > summary::marker { content: ""; }
+html[data-design="pencil"] body details > summary::after,
+html[data-design="pencil"] body button[aria-controls="question-evidence"]::after {
+  content: "+"; flex: 0 0 28px; width: 28px; height: 28px; display: grid; place-items: center;
+  background: #171717; color: #fff; border-radius: 2px; font: 20px/1 Arial,sans-serif;
+}
+html[data-design="pencil"] body details[open] > summary::after,
+html[data-design="pencil"] body button[aria-controls="question-evidence"][aria-expanded="true"]::after { content: "×"; }
+html[data-design="pencil"] body details > summary svg,
+html[data-design="pencil"] body button[aria-controls="question-evidence"] svg { display: none; }
+html[data-design="pencil"] body details > summary:hover,
+html[data-design="pencil"] body button[aria-controls="question-evidence"]:hover { background: #dedede; text-decoration: none; }
+html[data-design="pencil"] body details > :not(summary) { margin-left: 20px; margin-right: 20px; }
+html[data-design="pencil"] body details > summary + :not(summary) { margin-top: 16px; }
+html[data-design="pencil"] body details > :last-child:not(summary) { padding-bottom: 20px; }
+@media(max-width:600px) {
+  html[data-design="pencil"] body details > summary { padding: 14px 16px; gap: 12px; }
+  html[data-design="pencil"] body details > :not(summary) { margin-inline: 16px; }
+}

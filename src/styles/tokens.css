@@ -1,0 +1,51 @@
+:root {
+  --checku-orange: #EA9B28;
+  --checku-graphite: #27292D;
+  --checku-white: #FFFFFF;
+  --checku-grey: #E9E9E9;
+
+  --brand-primary: var(--checku-orange);
+  --brand-ink: var(--checku-graphite);
+  --bg-page: var(--checku-white);
+  --bg-muted: var(--checku-grey);
+  --bg-accent: var(--checku-orange);
+  --surface-primary: var(--checku-white);
+  --surface-muted: var(--checku-grey);
+  --text-primary: var(--checku-graphite);
+  --text-inverse: var(--checku-white);
+  --text-accent: var(--checku-orange);
+  --border-default: var(--checku-graphite);
+  --border-muted: var(--checku-grey);
+  --state-success: var(--checku-graphite);
+  --state-warning: var(--checku-orange);
+  --brand-primary-soft: color-mix(in srgb, var(--checku-orange) 35%, var(--checku-white));
+  --brand-primary-mid: color-mix(in srgb, var(--checku-orange) 65%, var(--checku-white));
+
+  --font-display: var(--font-bounded), "Arial Narrow", sans-serif;
+  /* TODO: требует подтверждения — добавить лицензированные web-font файлы Gotham Pro. */
+  --font-body: "Gotham Pro", Arial, sans-serif;
+
+  --border-width-default: 1px;
+  --border-width-strong: 2px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-button: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --container-default: 1120px;
+  --container-wide: 1280px;
+  --container-reading: 760px;
+  --page-gutter: 48px;
+  --motion-duration: 180ms;
+}

@@ -1,0 +1,14 @@
+.footer { background: var(--brand-ink); color: var(--text-inverse); padding-block: var(--space-6); }
+.inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+.brand { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--space-2); }
+.footer p { font-size: 0.875rem; }
+.footer nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--space-5); }
+.footer a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; font-size: 0.875rem; text-decoration: none; }
+.footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer a:focus-visible { outline-color: var(--checku-orange); }
+.bottom { grid-column: 1/-1; display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
+.bottom a { flex-shrink: 0; }
+@media(max-width:600px) { .inner { grid-template-columns: 1fr; } .bottom { align-items: flex-start; flex-direction: column; gap: var(--space-2); } }
+
+/* Optional Pencil design, switchable without changing behavior. */
+:global(html[data-design="pencil"]) .footer { background: #000; padding-block: 40px 80px; } :global(html[data-design="pencil"]) .brand { font-weight: 400; } :global(html[data-design="pencil"]) .bottom { border-top: 1px solid #333; padding-top: 20px; color: #bbb; }

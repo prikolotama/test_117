@@ -1,0 +1,77 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3, h4 { font-family: var(--font-display); }
+a { color: inherit; }
+button { font: inherit; }
+button, a { -webkit-tap-highlight-color: var(--checku-grey); }
+img, svg { display: block; max-width: 100%; }
+::selection { background: var(--checku-orange); color: var(--checku-graphite); }
+:focus-visible { outline: 2px solid var(--checku-graphite); outline-offset: 5px; }
+.container {
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--container-wide));
+  margin-inline: auto;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-5);
+  min-height: 48px;
+  padding: var(--space-4) 20px;
+  border: 1px solid var(--checku-orange);
+  border-radius: var(--radius-button);
+  background: var(--checku-orange);
+  color: var(--checku-graphite);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color var(--motion-duration) ease-out, transform var(--motion-duration) ease-out;
+}
+.button:hover:not(:disabled) { border-color: var(--checku-graphite); transform: translateY(-1px); }
+.button:active:not(:disabled) { transform: translateY(0); }
+.button:disabled {
+  cursor: not-allowed;
+  background: var(--checku-grey);
+  border-color: var(--checku-grey);
+  color: var(--checku-graphite);
+}
+.skip-link {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 10;
+  padding: var(--space-4);
+  background: var(--bg-page);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+@media (max-width: 1100px) { :root { --page-gutter: 32px; } }
+@media (max-width: 600px) {
+  :root { --page-gutter: 20px; }
+  .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* Keep modal forms within the visible portion of a tall Tilda iframe. */
+html[data-embedded="true"] dialog[open] {
+  position: fixed;
+  top: calc(var(--embed-top, 0px) + 16px);
+  bottom: auto;
+  margin: 0 auto;
+  max-height: calc(var(--embed-height, 100dvh) - 32px);
+  overflow-y: auto;
+}

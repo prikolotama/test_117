@@ -1,0 +1,42 @@
+<!-- Replace YOUR-PROJECT with your production Vercel domain. Paste the entire snippet into T123. -->
+<div id="checku-embed" style="width:100%;">
+  <iframe id="checku-frame" title="Самооценка КЗИ — CheckU"
+    src="https://YOUR-PROJECT.vercel.app/assessment"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="display:block;width:100%;height:900px;border:0;" ></iframe>
+</div>
+<script>
+(function () {
+  var frame = document.getElementById('checku-frame');
+  var origin = new URL(frame.src).origin;
+  function viewport() {
+    var rect = frame.getBoundingClientRect();
+    frame.contentWindow.postMessage({ type: 'checku:viewport', top: Math.max(0, -rect.top), height: Math.max(100, Math.min(window.innerHeight, rect.bottom) - Math.max(0, rect.top)) }, origin);
+  }
+  var scheduled = false;
+  function scheduleViewport() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(function () { scheduled = false; viewport(); });
+  }
+  window.addEventListener('scroll', scheduleViewport, { passive: true });
+  window.addEventListener('resize', scheduleViewport);
+  window.addEventListener('message', function (event) {
+    if (event.origin !== origin || event.source !== frame.contentWindow) return;
+    var data = event.data;
+    if (!data || typeof data !== 'object') return;
+    if (data.type === 'checku:resize' && Number.isFinite(data.height) && data.height > 0) {
+      frame.style.height = Math.min(50000, Math.max(300, data.height + 2)) + 'px';
+      scheduleViewport();
+    }
+    if (data.type === 'checku:scroll' && Number.isFinite(data.top)) {
+      var offset = Math.max(0, Math.min(data.top, frame.offsetHeight));
+      window.scrollTo({ top: Math.max(0, frame.getBoundingClientRect().top + window.scrollY + offset - 16), behavior: 'smooth' });
+    }
+  });
+  frame.addEventListener('load', function () {
+    frame.contentWindow.postMessage({ type: 'checku:init' }, origin);
+    viewport();
+  });
+})();
+</script>

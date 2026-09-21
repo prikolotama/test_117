@@ -1,0 +1,91 @@
+.page { width: min(calc(100% - 40px), 1200px); margin: 0 auto; padding-bottom: var(--space-7); }
+.top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-4); }
+.top a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.875rem; text-underline-offset: 4px; }
+.homeLink { padding: 10px 14px; border: 1px solid var(--brand-ink); border-radius: var(--radius-button); background: var(--brand-ink); color: var(--text-inverse); font-weight: 700; text-decoration: none; }
+.homeLink:hover { background: var(--brand-primary); border-color: var(--brand-primary); color: var(--brand-ink); }
+.top span { font-family: var(--font-display); font-size: 0.875rem; }
+.draft { padding: var(--space-4); background: var(--bg-muted); border-radius: var(--radius-sm); font-size: 0.875rem; }
+.draft a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 3px; }
+.notice { padding: var(--space-4); border: 1px solid var(--border-default); margin-top: var(--space-4); border-radius: var(--radius-sm); }
+.progress { padding-block: var(--space-4); background: var(--bg-page); }
+.progressText { display: flex; justify-content: space-between; gap: var(--space-4); font-size: 0.875rem; }
+.progress progress { display: block; appearance: none; width: 100%; height: 6px; border: 0; margin-block: var(--space-3); background: var(--brand-ink); }
+.progress progress::-webkit-progress-bar { background: var(--brand-ink); }
+.progress progress::-webkit-progress-value { background: var(--brand-primary); }
+.progress progress::-moz-progress-bar { background: var(--brand-primary); }
+.progress p { font-size: 0.8125rem; }
+.card { border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: var(--space-6); margin-top: var(--space-4); }
+.group { font-family: var(--font-display); font-size: 0.75rem; margin-bottom: var(--space-4); }
+.card h1 { font-size: 1.5rem; line-height: 1.3; font-weight: 500; scroll-margin-top: 24px; }
+.description { margin-block: var(--space-4) var(--space-5); }
+.answers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); padding: 0; margin: 0; border: 0; }
+.legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.option { display: flex; align-items: center; justify-content: center; gap: var(--space-3); min-height: 56px; padding: var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); cursor: pointer; font-weight: 700; }
+.option input { width: 18px; height: 18px; margin: 0; accent-color: var(--brand-ink); }
+.option:has(input:checked) { background: var(--brand-primary); border-width: 2px; padding: 11px; }
+.option:has(input:focus-visible) { outline: 2px solid var(--brand-ink); outline-offset: 4px; }
+.option:hover { background: var(--bg-muted); }
+.option:has(input:checked):hover { background: var(--brand-primary); }
+.hint { font-size: 0.875rem; margin-top: var(--space-4); }
+.evidenceButton { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); width: 100%; padding: var(--space-4) 0; min-height: 48px; margin-top: var(--space-4); border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; font-weight: 700; }
+.evidenceButton svg { flex-shrink: 0; }
+.evidenceButton[aria-expanded="true"] svg { transform: rotate(180deg); }
+.evidenceButton:hover { text-decoration: underline; text-underline-offset: 4px; }
+.evidence { background: var(--bg-muted); padding: var(--space-4); border-radius: var(--radius-sm); }
+.evidence ul { margin: 0; padding-left: 20px; }
+.evidence li + li { margin-top: var(--space-3); }
+.evidence p { font-size: 0.875rem; margin-top: var(--space-4); }
+.navigation { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-5); }
+.back { padding: 12px 20px; min-height: 48px; border: 1px solid var(--border-default); border-radius: var(--radius-button); background: var(--bg-page); color: inherit; cursor: pointer; }
+.back:disabled { background: var(--bg-muted); border-color: var(--border-muted); cursor: not-allowed; }
+.back:hover:not(:disabled) { background: var(--bg-muted); }
+.save { font-size: 0.8125rem; margin-top: var(--space-4); }
+@media(max-width:600px) {
+  .page { width: calc(100% - 32px); }
+  .top { flex-wrap: wrap; }
+  .card { padding: var(--space-5); }
+  .card h1 { font-size: 1.375rem; }
+  .answers { grid-template-columns: 1fr; }
+  .navigation { flex-direction: column-reverse; }
+  .progressText { font-size: 0.8125rem; gap: var(--space-2); }
+}
+
+.workspace { display: grid; grid-template-columns: minmax(0,1fr) 360px; align-items: start; gap: 24px; margin-top: 8px; }
+.live { grid-column: 2; grid-row: 1; position: sticky; top: 24px; }
+.card { grid-column: 1; grid-row: 1; margin: 0; padding: 32px; border-color: var(--border-muted); }
+.card h1 { font-size: clamp(1.375rem,2.3vw,1.875rem); line-height: 1.3; }
+.group { color: var(--text-primary); display: inline-block; padding: 6px 10px; border-radius: 6px; background: var(--bg-muted); }
+.description { max-width: 65ch; }
+.draft { background: transparent; padding: 8px 0; font-size: .75rem; }
+.draft a { min-height: 24px; }
+.option:has(input:checked) { background: var(--brand-ink); color: var(--text-inverse); }
+.option:has(input:checked):hover { background: var(--brand-ink); }
+.option input { accent-color: var(--brand-primary); }
+@media(max-width:900px) { .workspace { grid-template-columns: 1fr; } .live { position: static; grid-column: 1; grid-row: 1; } .card { grid-row: 2; } }
+@media(max-width:600px) { .card { padding: 20px; } .answers { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; } .option { padding: 10px 4px; gap: 6px; font-size: .8125rem; } .option:has(input:checked) { padding: 9px 3px; } .option input { width: 16px; height: 16px; } }
+
+@media(max-width:900px) { .live { position: sticky; top: 0; z-index: 3; } .live:has(details[open]) { position: static; } .card h1 { scroll-margin-top: 220px; } }
+
+/* Compact working view: keep the question and navigation together. */
+.page { padding-bottom: 20px; }
+.top { padding-block: 8px; }
+.draft { padding-block: 4px; }
+.progress { padding-block: 8px; }
+.progress progress { margin-block: 8px; }
+.progress > p { display: none; }
+.workspace { gap: 20px; }
+.card { padding: 20px; }
+.card h1 { font-size: clamp(1.25rem,1.8vw,1.5rem); line-height: 1.25; }
+.group { margin-bottom: 12px; }
+.description { margin-block: 12px 16px; font-size: .9375rem; }
+.option { min-height: 48px; }
+.evidenceButton { margin-top: 8px; padding-block: 10px; min-height: 44px; }
+.navigation { margin-top: 20px; }
+.save { margin-top: 12px; }
+@media(max-width:600px) { .navigation { flex-direction: row; } .navigation :global(.button) { width: auto; } }
+
+/* Optional Pencil design, switchable without changing behavior. */
+:global(html[data-design="pencil"]) .page { background: #f5f5f5; padding: 0 24px 32px; border-radius: 0 0 10px 10px; } :global(html[data-design="pencil"]) .top { border-bottom: 1px solid #ddd; margin-bottom: 8px; } :global(html[data-design="pencil"]) .homeLink { border-radius: 3px; } :global(html[data-design="pencil"]) .progress { background: transparent; } :global(html[data-design="pencil"]) .card { background: #fff; border: 0; border-radius: 10px; } :global(html[data-design="pencil"]) .card h1 { font-weight: 400; } :global(html[data-design="pencil"]) .option { border-radius: 3px; border-color: #ccc; background: #f5f5f5; font-weight: 500; } :global(html[data-design="pencil"]) .option:has(input:checked) { border-color: #171717; } :global(html[data-design="pencil"]) .evidenceButton { background: #e9e9e9; padding-inline: 14px; border-radius: 3px; font-weight: 500; } :global(html[data-design="pencil"]) .back { border-radius: 3px; }
+@media(max-width:600px) { :global(html[data-design="pencil"]) .page { padding-inline: 12px; width: calc(100% - 16px); } }
+:global(html[data-design="pencil"]) .option:has(input:checked) { background: var(--brand-primary); color: #171717; border-color: #171717; }
+:global(html[data-design="pencil"]) .evidence { border-radius: 0 0 3px 3px; padding: 16px 20px 20px; background: #e9e9e9; }
